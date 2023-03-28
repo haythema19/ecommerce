@@ -18,7 +18,7 @@ app.listen(PORT, () => {
   console.log(`Serving on port ${PORT}`);
 });
 
-app.use("/api/user", authRoute);
+app.use("/api/users", authRoute);
 
 app.use(notFound);
 app.use(errorHandler);
