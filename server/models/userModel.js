@@ -76,14 +76,14 @@ userSchema.methods.isPasswordMatched = async function (enteredPassword) {
 };
 
 userSchema.methods.createPasswordResetToken = async function () {
-  const resetToken = crypto.randomBytes(32).toString("hex");
+  const resettoken = crypto.randomBytes(32).toString("hex");
   this.passwordResetToken = crypto
     .createHash("sha256")
-    .update(resetToken)
+    .update(resettoken)
     .digest("hex");
 
   this.passwordResetExpires = Date.now() + 3 * 60 * 1000; // 10 minutes
-  return resetToken;
+  return resettoken;
 };
 
 //Export the model
