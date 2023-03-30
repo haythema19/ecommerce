@@ -1,7 +1,6 @@
+const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const asyncHandler = require("express-async-handler");
-
-const User = require("../models/userModel");
 
 const authMiddleware = asyncHandler(async (req, res, next) => {
   let token;
@@ -15,13 +14,12 @@ const authMiddleware = asyncHandler(async (req, res, next) => {
         next();
       }
     } catch (error) {
-      throw new Error("Not authorized token expired, please login again");
+      throw new Error("Not Authorized token expired, Please Login again");
     }
   } else {
-    throw new Error(" There is no token attached to headers");
+    throw new Error(" There is no token attached to header");
   }
 });
-
 const isAdmin = asyncHandler(async (req, res, next) => {
   const { email } = req.user;
   const adminUser = await User.findOne({ email });
@@ -31,5 +29,4 @@ const isAdmin = asyncHandler(async (req, res, next) => {
     next();
   }
 });
-
 module.exports = { authMiddleware, isAdmin };

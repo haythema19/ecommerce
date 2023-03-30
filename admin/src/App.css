@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+main {
+  height: 100vh;
+  overflow-y: scroll;
+  background-color: transparent !important;
+}
+
+main::-webkit-scrollbar {
+  width: 0;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+  margin-bottom: 0;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+.ant-layout-sider {
+  flex: 0 0 250px !important;
+  max-width: 250px !important;
+  min-width: 250px !important;
+  width: 250px !important;
+}
+
+.ant-layout-sider-collapsed {
+  flex: 0 0 80px !important;
+  max-width: 80px !important;
+  min-width: 80px !important;
+  width: 80px !important;
+}
+
+.trigger {
+  padding: 0 24px;
+  font-size: 18px;
+  line-height: 64px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.trigger:hover {
+  color: #1890ff;
+}
+
+.logo {
+  height: 64px;
+  margin: 0;
+  background: #ffd333;
+}
+
+.ant-layout-sider-collapsed .sm-logo {
+  display: block;
+}
+
+.ant-layout-sider-collapsed .lg-logo {
+  display: none;
+}
+
+.ant-layout {
+  min-height: 100vh;
+}
+
+a.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  background-color: #ffd333;
+  color: black;
+  text-decoration: none !important;
+}
+
+.icon-size {
+  font-size: 18px !important;
+}
+
+.ant-menu-title-content {
+  margin-top: 3px !important;
+}
+
+.ant-layout-header h5 {
+  line-height: 30px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.ant-layout-header p {
+  line-height: 20px;
+  font-size: 14px;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  right: -1px;
+  top: 13px;
+  width: 15px;
+  height: 15px;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.card {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+  border: 0;
+  outline: 0;
+}
