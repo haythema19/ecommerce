@@ -38,26 +38,27 @@ const productSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
-    images: {
-      type: Array,
-    },
-    color: {
-      type: String,
-      required: true,
-    },
+    images: [
+      {
+        public_id: String,
+        url: String,
+      },
+    ],
+    color: [],
+    tags: String,
     ratings: [
       {
         star: Number,
-        postedBy: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "User",
-        },
+        comment: String,
+        postedby: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
       },
     ],
+    totalrating: {
+      type: String,
+      default: 0,
+    },
   },
-  {
-    timestamps: true,
-  }
+  { timestamps: true }
 );
 
 //Export the model

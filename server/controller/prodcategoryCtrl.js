@@ -1,4 +1,4 @@
-const Category = require("../models/blogCategory");
+const Category = require("../models/prodcategoryModel.js");
 const asyncHandler = require("express-async-handler");
 const validateMongoDbId = require("../utils/validateMongodbId");
 
@@ -42,7 +42,7 @@ const getCategory = asyncHandler(async (req, res) => {
     throw new Error(error);
   }
 });
-const getAllCategory = asyncHandler(async (req, res) => {
+const getallCategory = asyncHandler(async (req, res) => {
   try {
     const getallCategory = await Category.find();
     res.json(getallCategory);
@@ -55,5 +55,5 @@ module.exports = {
   updateCategory,
   deleteCategory,
   getCategory,
-  getAllCategory,
+  getallCategory,
 };

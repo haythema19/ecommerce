@@ -24,7 +24,7 @@ const SingleProduct = () => {
   const [orderedProduct, setOrderedProduct] = useState(true);
   const copyToClipboard = (text) => {
     console.log("text: ", text);
-    var textField = document.createElement("textarea");
+    const textField = document.createElement("textarea");
     textField.innerText = text;
     document.body.appendChild(textField);
     textField.select();
@@ -375,7 +375,9 @@ const SingleProduct = () => {
                         className="form-control"
                         placeholder="Conmments"
                       ></textarea>
-                      <label htmlFor="comments">Hãy viết đánh giá của bạn</label>
+                      <label htmlFor="comments">
+                        Hãy viết đánh giá của bạn
+                      </label>
                     </div>
                     <div className="d-flex justify-content-end">
                       <button type="submit" className="button">

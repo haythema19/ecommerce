@@ -1,13 +1,11 @@
 const { default: mongoose } = require("mongoose");
-const dotenv = require("dotenv").config();
 
 const dbConnect = () => {
   try {
-    const conn = mongoose.connect(process.env.MONGOOSE);
-    console.log("Database connection");
+    const conn = mongoose.connect(process.env.MONGODB_URL);
+    console.log("Database Connected Successfully");
   } catch (error) {
-    console.log("Database connection error");
+    console.log("DAtabase error");
   }
 };
-
 module.exports = dbConnect;

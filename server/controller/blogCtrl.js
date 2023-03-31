@@ -1,25 +1,18 @@
-const asyncHandler = require("express-async-handler");
-
 const Blog = require("../models/blogModel");
 const User = require("../models/userModel");
-
-const validateMongoDbId = require("../utils/validateMongoDbId");
-
-// create blog
+const asyncHandler = require("express-async-handler");
+const validateMongoDbId = require("../utils/validateMongodbId");
+const cloudinaryUploadImg = require("../utils/cloudinary");
+const fs = require("fs");
 const createBlog = asyncHandler(async (req, res) => {
-  const newBlog = await Blog.create(req.body);
-
   try {
-    res.json({
-      status: "success",
-      newBlog,
-    });
+    const newBlog = await Blog.create(req.body);
+    res.json(newBlog);
   } catch (error) {
     throw new Error(error);
   }
 });
 
-// update blog
 const updateBlog = asyncHandler(async (req, res) => {
   const { id } = req.params;
   validateMongoDbId(id);
@@ -33,7 +26,6 @@ const updateBlog = asyncHandler(async (req, res) => {
   }
 });
 
-// get blog
 const getBlog = asyncHandler(async (req, res) => {
   const { id } = req.params;
   validateMongoDbId(id);
@@ -53,9 +45,7 @@ const getBlog = asyncHandler(async (req, res) => {
     throw new Error(error);
   }
 });
-
-// get all blog
-const getAllBlog = asyncHandler(async (req, res) => {
+const getAllBlogs = asyncHandler(async (req, res) => {
   try {
     const getBlogs = await Blog.find();
     res.json(getBlogs);
@@ -64,7 +54,6 @@ const getAllBlog = asyncHandler(async (req, res) => {
   }
 });
 
-// delete blog
 const deleteBlog = asyncHandler(async (req, res) => {
   const { id } = req.params;
   validateMongoDbId(id);
@@ -76,7 +65,6 @@ const deleteBlog = asyncHandler(async (req, res) => {
   }
 });
 
-// likes blog
 const liketheBlog = asyncHandler(async (req, res) => {
   const { blogId } = req.body;
   validateMongoDbId(blogId);
@@ -123,8 +111,6 @@ const liketheBlog = asyncHandler(async (req, res) => {
     res.json(blog);
   }
 });
-
-// dislikes blog
 const disliketheBlog = asyncHandler(async (req, res) => {
   const { blogId } = req.body;
   validateMongoDbId(blogId);
@@ -172,7 +158,6 @@ const disliketheBlog = asyncHandler(async (req, res) => {
   }
 });
 
-// upload images
 const uploadImages = asyncHandler(async (req, res) => {
   const { id } = req.params;
   validateMongoDbId(id);
@@ -208,7 +193,7 @@ module.exports = {
   createBlog,
   updateBlog,
   getBlog,
-  getAllBlog,
+  getAllBlogs,
   deleteBlog,
   liketheBlog,
   disliketheBlog,

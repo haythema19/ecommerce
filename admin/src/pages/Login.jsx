@@ -2,20 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
-import * as Yup from "yup";
+import * as yup from "yup";
 
 import { CustomInput } from "../components";
-import login from "../features/auth/authService";
+import { login } from "../features/auth/authSlice";
+
+let schema = yup.object().shape({
+  email: yup
+    .string()
+    .email("Địa chỉ email không hợp lệ")
+    .required("Vui lòng nhập Email"),
+  password: yup.string().required("Vui lòng nhập mật khẩu"),
+});
 
 const Login = () => {
   const dispatch = useDispatch();
-
-  let schema = Yup.object().shape({
-    email: Yup.string()
-      .email("Địa chỉ email không hợp lệ!")
-      .required("Vui lòng nhập địa chỉ email"),
-    password: Yup.string().required("Vui lòng nhập mật khẩu"),
-  });
 
   const formik = useFormik({
     initialValues: {
@@ -25,7 +26,6 @@ const Login = () => {
     validationSchema: schema,
     onSubmit: (values) => {
       dispatch(login(values));
-      alert(JSON.stringify(values, null, 2));
     },
   });
 
@@ -40,7 +40,7 @@ const Login = () => {
       <div className="my-5 w-25 bg-white rounded-3 mx-auto p-3">
         <h3 className="text-center">Đăng nhập</h3>
         <p className="text-center">Vui lòng đăng nhập để tiếp tục</p>
-        <form action="" onSubmit={formik.handleSumit}>
+        <form action="" onSubmit={formik.handleSubmit}>
           <div>
             <CustomInput
               id="email"
