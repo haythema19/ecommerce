@@ -30,7 +30,7 @@ const Wishlist = () => {
                 <h5 className="title">
                   Honor T1 7.0 8GB RAM 7 Inch with Wi-fi 6 + 5G Tablet
                 </h5>
-                <h6 className="price">$100</h6>
+                <h6 className="sub-title price">$100</h6>
               </div>
             </div>
           </div>
@@ -52,7 +52,7 @@ const Wishlist = () => {
                 <h5 className="title">
                   Honor T1 7.0 8GB RAM 7 Inch with Wi-fi 6 + 5G Tablet
                 </h5>
-                <h6 className="price">$100</h6>
+                <h6 className="sub-title price">$100</h6>
               </div>
             </div>
           </div>
@@ -74,7 +74,7 @@ const Wishlist = () => {
                 <h5 className="title">
                   Honor T1 7.0 8GB RAM 7 Inch with Wi-fi 6 + 5G Tablet
                 </h5>
-                <h6 className="price">$100</h6>
+                <h6 className="sub-title price">$100</h6>
               </div>
             </div>
           </div>
@@ -96,7 +96,7 @@ const Wishlist = () => {
                 <h5 className="title">
                   Honor T1 7.0 8GB RAM 7 Inch with Wi-fi 6 + 5G Tablet
                 </h5>
-                <h6 className="price">$100</h6>
+                <h6 className="sub-title price">$100</h6>
               </div>
             </div>
           </div>
@@ -118,7 +118,7 @@ const Wishlist = () => {
                 <h5 className="title">
                   Honor T1 7.0 8GB RAM 7 Inch with Wi-fi 6 + 5G Tablet
                 </h5>
-                <h6 className="price">$100</h6>
+                <h6 className="sub-title price">$100</h6>
               </div>
             </div>
           </div>

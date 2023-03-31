@@ -1,7 +1,13 @@
 import React, { useState } from "react";
-import { Column } from "@ant-design/plots";
+import { Column, Pie } from "@ant-design/plots";
+import { Space, Table, Tag } from "antd";
 
-import { BsArrowDownRight, BsArrowUpRight } from "react-icons/bs";
+import {
+  BsArrowDownRight,
+  BsArrowUpRight,
+  BsThreeDotsVertical,
+} from "react-icons/bs";
+import { ChartPie } from "../components";
 
 const data = [
   {
@@ -85,29 +91,93 @@ const columns = [
   {
     title: "STT",
     dataIndex: "key",
+    key: "name",
+    render: (text) => <a>{text}</a>,
   },
   {
     title: "Name",
     dataIndex: "name",
+    key: "name",
+    render: (text) => <a>{text}</a>,
   },
   {
-    title: "Product",
-    dataIndex: "product",
+    title: "Age",
+    dataIndex: "age",
+    key: "age",
   },
   {
-    title: "Status",
-    dataIndex: "status",
+    title: "Address",
+    dataIndex: "address",
+    key: "address",
+  },
+  {
+    title: "Tags",
+    key: "tags",
+    dataIndex: "tags",
+    render: (_, { tags }) => (
+      <>
+        {tags.map((tag) => {
+          let color = tag.length > 5 ? "geekblue" : "green";
+          if (tag === "loser") {
+            color = "volcano";
+          }
+          return (
+            <Tag color={color} key={tag}>
+              {tag.toUpperCase()}
+            </Tag>
+          );
+        })}
+      </>
+    ),
+  },
+  {
+    title: "Action",
+    key: "action",
+    render: (_, record) => (
+      <Space size="middle">
+        <a>Invite {record.name}</a>
+        <a>Delete</a>
+      </Space>
+    ),
   },
 ];
-const dataTable = [];
-for (let i = 1; i < 46; i++) {
-  dataTable.push({
-    key: i,
-    name: `Edward King ${i}`,
-    product: 32,
-    status: `London, Park Lane no. ${i}`,
-  });
-}
+const dataTable = [
+  {
+    key: "1",
+    name: "John Brown",
+    age: 32,
+    address: "New York No. 1 Lake Park",
+    tags: ["nice", "developer"],
+  },
+  {
+    key: "2",
+    name: "Jim Green",
+    age: 42,
+    address: "London No. 1 Lake Park",
+    tags: ["loser"],
+  },
+  {
+    key: "3",
+    name: "Joe Black",
+    age: 32,
+    address: "Sydney No. 1 Lake Park",
+    tags: ["cool", "teacher"],
+  },
+  {
+    key: "4",
+    name: "Joe Black",
+    age: 32,
+    address: "Sydney No. 1 Lake Park",
+    tags: ["cool", "teacher"],
+  },
+  {
+    key: "5",
+    name: "Joe Black",
+    age: 32,
+    address: "Sydney No. 1 Lake Park",
+    tags: ["cool", "teacher"],
+  },
+];
 
 const Dashboard = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
@@ -130,53 +200,121 @@ const Dashboard = () => {
   };
   const hasSelected = selectedRowKeys.length > 0;
   return (
-    <div>
-      <h3 className="mb-4">Dashboard</h3>
-      <div className="d-flex justify-content-between align-items-center gap-3">
-        <div className="d-flex flex-grow-1 justify-content-between bg-white p-3 rounded-3">
-          <div>
+    <>
+      <h3 className="mb-4 title">Dashboard</h3>
+      <div className="d-flex justify-content-between align-items-center gap-5">
+        <div className="card d-flex flex-column gap-4 w-100">
+          <div className="d-flex align-items-center justify-content-between">
             <p>Total</p>
-            <h4>$9999</h4>
+            <BsThreeDotsVertical />
           </div>
-          <div className="d-flex flex-column align-items-end gap-2">
-            <h6 className="red d-flex gap-1 align-items-center">
-              <BsArrowDownRight /> 32%
-            </h6>
-            <p>Compare to april 2023</p>
+          <div className="d-flex align-items-center justify-content-between">
+            <h3 className="title">$9999</h3>
+            <div className="d-flex flex-column align-items-end">
+              <p className="red d-flex align-items-center gap-1">
+                <BsArrowDownRight /> 50%
+              </p>
+              <p>Compared to April 2023</p>
+            </div>
           </div>
         </div>
-        <div className="d-flex flex-grow-1 justify-content-between bg-white p-3 rounded-3">
-          <div>
+        <div className="card d-flex flex-column gap-4 w-100">
+          <div className="d-flex align-items-center justify-content-between">
             <p>Total</p>
-            <h4>$9999</h4>
+            <BsThreeDotsVertical />
           </div>
-          <div className="d-flex flex-column align-items-end gap-2">
-            <h6 className="green d-flex gap-1 align-items-center">
-              <BsArrowUpRight /> 32%
-            </h6>
-            <p>Compare to april 2023</p>
+          <div className="d-flex align-items-center justify-content-between">
+            <h3 className="title">$9999</h3>
+            <div className="d-flex flex-column align-items-end">
+              <p className="green d-flex align-items-center gap-1">
+                <BsArrowUpRight /> 50%
+              </p>
+              <p>Compared to April 2023</p>
+            </div>
           </div>
         </div>
-        <div className="d-flex flex-grow-1 justify-content-between bg-white p-3 rounded-3">
-          <div>
+        <div className="card d-flex flex-column gap-4 w-100">
+          <div className="d-flex align-items-center justify-content-between">
             <p>Total</p>
-            <h4>$9999</h4>
+            <BsThreeDotsVertical />
           </div>
-          <div className="d-flex flex-column align-items-end gap-2">
-            <h6 className="red d-flex gap-1 align-items-center">
-              <BsArrowDownRight /> 32%
-            </h6>
-            <p>Compare to april 2023</p>
+          <div className="d-flex align-items-center justify-content-between">
+            <h3 className="title">$9999</h3>
+            <div className="d-flex flex-column align-items-end">
+              <p className="red d-flex align-items-center gap-1">
+                <BsArrowDownRight /> 50%
+              </p>
+              <p>Compared to April 2023</p>
+            </div>
           </div>
         </div>
       </div>
-      <div className="mt-4 card">
-        <h3>Income Statics</h3>
-        <div className="mt-4">
-          <Column {...config} />
+
+      <div className="mt-4 d-flex align-item-center justify-content-between gap-3">
+        <div className="card d-flex flex-column w-25">
+          <div className="d-flex align-items-center justify-content-between">
+            <h6>Active users</h6>
+            <div>
+              <BsThreeDotsVertical />
+            </div>
+          </div>
+          <div className="mt-4 saw-pulse__counter">200</div>
+          <div className="active-page mt-4 d-flex flex-column">
+            <div className="d-flex justify-content-between">
+              <span className="fw-bold">Active pages</span>
+              <span className="fw-bold">Users</span>
+            </div>
+            <div className="d-flex justify-content-between">
+              <p>/products/brandix-z4</p>
+              <p>15</p>
+            </div>
+            <div className="d-flex justify-content-between">
+              <p>/categories/drivetrain</p>
+              <p>11</p>
+            </div>
+            <div className="d-flex justify-content-between">
+              <p>/categories/monitors</p>
+              <p>7</p>
+            </div>
+            <div className="d-flex justify-content-between">
+              <p>/account/orders</p>
+              <p>4</p>
+            </div>
+            <div className="d-flex justify-content-between">
+              <p>/cart</p>
+              <p>3</p>
+            </div>
+            <div className="d-flex justify-content-between">
+              <p>/checkout</p>
+              <p>3</p>
+            </div>
+            <div className="d-flex justify-content-between">
+              <p>/pages/about-us</p>
+              <p>1</p>
+            </div>
+          </div>
+        </div>
+        <div className="card w-75">
+          <h6>Income Statics</h6>
+          <div className="mt-4">
+            <Column {...config} />
+          </div>
         </div>
       </div>
-    </div>
+
+      <div className="mt-4 d-flex gap-3">
+        <div className="card w-75">
+          <h6 className="mb-4">Recent orders</h6>
+          <Table columns={columns} dataSource={dataTable} />
+        </div>
+        <div className="card w-25">
+          <h6>Sales by traffic source</h6>
+          <div>
+            <ChartPie />
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 

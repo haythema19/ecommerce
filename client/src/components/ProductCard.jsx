@@ -23,7 +23,7 @@ const ProductCard = (props) => {
           <img className="img-fluid" src="/images/tab.jpg" alt="" />
         </div>
         <div className="product-details">
-          <h6 className="brand">Apple</h6>
+          <h6 className="sub-title brand">Apple</h6>
           <h5 className="product-title">
             Kids headphone bulk 10 pack multi colored studient
           </h5>

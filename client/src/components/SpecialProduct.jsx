@@ -13,7 +13,7 @@ const SpecialProduct = () => {
           </div>
           <div className="special-product-content">
             <h5 className="brand text-danger">Samsung </h5>
-            <h6 className="title">Samsung Galaxy S23 Mobile Phone; Sim...</h6>
+            <h6 className="sub-title title">Samsung Galaxy S23 Mobile Phone; Sim...</h6>
             <ReactStars
               count={5}
               size={24}

@@ -103,7 +103,7 @@ const Home = () => {
                   <div className="d-flex align-items-center gap-15" key={j}>
                     <img src={i.image} alt="" />
                     <div>
-                      <h6 className="mb-0">{i.title}</h6>
+                      <h6 className="sub-title mb-0">{i.title}</h6>
                       <p className="mb-0">{i.tagline}</p>
                     </div>
                   </div>
@@ -198,7 +198,7 @@ const Home = () => {
               <img src="/images/famous-1.webp" className="img-fluid" alt="famous" />
               <div className="famous-content position-absolute">
                 <h5 className="text-white">Big Screen</h5>
-                <h6 className="text-white">Smart Watch Series 7</h6>
+                <h6 className="sub-title text-white">Smart Watch Series 7</h6>
                 <p className="text-white">From $399or $16.62/mo. for 24 mo.*</p>
               </div>
             </div>
@@ -208,7 +208,7 @@ const Home = () => {
               <img src="/images/famous-2.webp" className="img-fluid" alt="famous" />
               <div className="famous-content position-absolute">
                 <h5 className="text-dark">Studio Display</h5>
-                <h6 className="text-dark">600 nits of brightness.</h6>
+                <h6 className="sub-title text-dark">600 nits of brightness.</h6>
                 <p className="text-dark">27-inch 5K Retina display</p>
               </div>
             </div>
@@ -218,7 +218,7 @@ const Home = () => {
               <img src="/images/famous-3.webp" className="img-fluid" alt="famous" />
               <div className="famous-content position-absolute">
                 <h5 className="text-dark">smartphones</h5>
-                <h6 className="text-dark">Smartphone 13 Pro.</h6>
+                <h6 className="sub-title text-dark">Smartphone 13 Pro.</h6>
                 <p className="text-dark">
                   Now in Green. From $999.00 or $41.62/mo. for 24 mo. Footnote*
                 </p>
@@ -230,7 +230,7 @@ const Home = () => {
               <img src="images/famous-3.webp" className="img-fluid" alt="famous" />
               <div className="famous-content position-absolute">
                 <h5 className="text-dark">home speakers</h5>
-                <h6 className="text-dark">Room-filling sound.</h6>
+                <h6 className="sub-title text-dark">Room-filling sound.</h6>
                 <p className="text-dark">From $699 or $116.58/mo. for 12 mo.*</p>
               </div>
             </div>

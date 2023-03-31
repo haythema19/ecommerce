@@ -387,7 +387,7 @@ const SingleProduct = () => {
                 <div className="reviews mt-3">
                   <div className="review">
                     <div className="d-flex gap-10 align-items-center">
-                      <h6 className="mb-0">Navdeep</h6>
+                      <h6 className="sub-title mb-0">Navdeep</h6>
                       <ReactStars
                         count={5}
                         size={20}

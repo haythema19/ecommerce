@@ -30,7 +30,7 @@ for (let i = 1; i < 46; i++) {
 const ProductCateList = () => {
   return (
     <div className="card">
-      <h3 className="mb-4">Product categories</h3>
+      <h3 className="mb-4 title">Product categories</h3>
       <div>
         <Table columns={columns} dataSource={dataTable} />
       </div>

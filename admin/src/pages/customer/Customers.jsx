@@ -30,7 +30,7 @@ for (let i = 1; i < 46; i++) {
 const Customers = () => {
   return (
     <div className="card">
-      <h3 className="mb-4">Customers</h3>
+      <h3 className="mb-4 title">Customers</h3>
       <div>
         <Table columns={columns} dataSource={dataTable} />
       </div>

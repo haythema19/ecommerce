@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { CustomInput } from "../Components";
+import { CustomInput } from "../components";
 
 const ForgotPassword = () => {
   return (
