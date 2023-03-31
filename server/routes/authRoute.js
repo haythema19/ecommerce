@@ -38,13 +38,14 @@ router.put("/reset-password/:token", resetPassword);
 router.put("/password", authMiddleware, updatePassword);
 
 router.get("/login", loginUserCtrl);
-router.get("/admin-login", loginAdmin);
+router.post("/admin-login", loginAdmin);
 
 router.post("/cart", authMiddleware, userCart);
 router.post("/cart/applycoupon", authMiddleware, applyCoupon);
 router.post("/cart/cash-order", authMiddleware, createOrder);
 
 router.get("/all-users", getallUser);
+
 router.get("/get-orders", authMiddleware, getOrders);
 router.get("/getallorders", authMiddleware, isAdmin, getAllOrders);
 router.get("/getorderbyuser/:id", authMiddleware, isAdmin, getAllOrders);

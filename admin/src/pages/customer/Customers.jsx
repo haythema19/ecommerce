@@ -1,33 +1,56 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Table } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+
+import { getUsers } from "../../features/customers/customerSlice";
+
 const columns = [
   {
     title: "STT",
     dataIndex: "key",
+    defaultSortOrder: "ascend",
+    sorter: (a, b) => a.key - b.key,
   },
   {
-    title: "Name",
+    title: "Tên",
     dataIndex: "name",
+    defaultSortOrder: "ascend",
+    sorter: (a, b) => a.name.length - b.name.length,
   },
   {
-    title: "Product",
-    dataIndex: "product",
+    title: "Email",
+    dataIndex: "email",
+    defaultSortOrder: "ascend",
+    sorter: (a, b) => a.email.length - b.email.length,
   },
   {
-    title: "Status",
-    dataIndex: "status",
+    title: "Số điện thoại",
+    dataIndex: "mobile",
+    defaultSortOrder: "ascend",
+    sorter: (a, b) => a.mobile - b.mobile,
   },
 ];
-const dataTable = [];
-for (let i = 1; i < 46; i++) {
-  dataTable.push({
-    key: i,
-    name: `Edward King ${i}`,
-    product: 32,
-    status: `London, Park Lane no. ${i}`,
-  });
-}
+
 const Customers = () => {
+  const dispatch = useDispatch();
+  const customersState = useSelector((state) => state.customer.customers);
+
+  const dataTable = [];
+  for (let i = 0; i < customersState.length; i++) {
+    if (customersState[i].role !== "admin") {
+      dataTable.push({
+        key: i,
+        name: customersState[i].firstName + " " + customersState[i].lastName,
+        email: customersState[i].email,
+        mobile: customersState[i].mobile,
+      });
+    }
+  }
+
+  useEffect(() => {
+    dispatch(getUsers());
+  }, []);
+
   return (
     <div className="card">
       <h3 className="mb-4 title">Customers</h3>

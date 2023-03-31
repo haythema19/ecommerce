@@ -144,10 +144,10 @@ const AddProduct = () => {
                 </div>
               </div>
               <div className="card">
-                <div class=" accordion-item accordion-flush">
-                  <h2 class="accordion-header" id="headingTwo">
+                <div className=" accordion-item accordion-flush">
+                  <h2 className="accordion-header" id="headingTwo">
                     <button
-                      class="accordion-button collapsed"
+                      className="accordion-button collapsed"
                       type="button"
                       data-bs-toggle="collapse"
                       data-bs-target="#collapseTwo"
@@ -159,11 +159,11 @@ const AddProduct = () => {
                   </h2>
                   <div
                     id="collapseTwo"
-                    class="accordion-collapse collapse"
+                    className="accordion-collapse collapse"
                     aria-labelledby="headingTwo"
                     data-bs-parent="#accordionExample"
                   >
-                    <div class="accordion-body mt-3">
+                    <div className="accordion-body mt-3">
                       <ImgCrop rotationSlider>
                         <Upload
                           action="https://www.mocky.io/v2/5cc8019d300000980a055e76"

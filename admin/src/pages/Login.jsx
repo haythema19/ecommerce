@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
 import * as yup from "yup";
@@ -17,6 +17,7 @@ let schema = yup.object().shape({
 
 const Login = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -29,6 +30,17 @@ const Login = () => {
     },
   });
 
+  const authState = useSelector((state) => state);
+  const { user, isError, isSuccess, isLoading, message } = authState.auth;
+
+  useEffect(() => {
+    if (user || isSuccess) {
+      navigate("admin");
+    } else {
+      navigate("");
+    }
+  }, [user, isError, isSuccess, isLoading]);
+
   return (
     <div
       className="py-5 d-flex align-items-center justify-content-center"
@@ -37,9 +49,14 @@ const Login = () => {
         minHeight: "100vh",
       }}
     >
-      <div className="my-5 w-25 bg-white rounded-3 mx-auto p-3">
+      <div
+        className="my-5 bg-white rounded-3 mx-auto p-3"
+        style={{ width: "450px" }}
+      >
         <h3 className="text-center">Đăng nhập</h3>
-        <p className="text-center">Vui lòng đăng nhập để tiếp tục</p>
+        <div className="error mb-3 mt-1 text-center">
+          {message.message == "rejected" ? "Bạn không có quyền Admin" : ""}
+        </div>
         <form action="" onSubmit={formik.handleSubmit}>
           <div>
             <CustomInput
