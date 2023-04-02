@@ -122,8 +122,10 @@ label.form-label {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 30px;
   font-weight: bold;
   background-color: #ffd333;
+
   color: black;
   text-decoration: none !important;
 }
@@ -168,6 +170,7 @@ label.form-label {
 }
 
 .error {
+  margin-top: 2px;
   color: var(--color-e52e2e);
   font-size: 13px;
 }
@@ -218,9 +221,42 @@ label.form-label {
 
 .ant-select-selector {
   border-radius: 0 !important;
-  padding: 5px !important;
 }
 
 .ant-select-selection-item {
   border-radius: 2px !important;
+}
+
+.btn-edit,
+.btn-remove {
+  color: var(--color-212529);
+  font-weight: 500;
+  font-size: 13px;
+  padding: 4px 10px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-edit {
+  background-color: var(--color-ffd333);
+}
+
+.btn-remove {
+  color: white;
+  background-color: var(--color-e52e2e);
+}
+
+.btn-edit:hover {
+  color: var(--color-212529);
+  transform: scale(1.1);
+}
+
+.btn-remove:hover {
+  color: var(--color-212529);
+  transform: scale(1.1);
+}
+
+
+.ql-container.ql-snow{
+  height: 200px !important;
 }

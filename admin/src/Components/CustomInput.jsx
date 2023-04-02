@@ -9,13 +9,13 @@ const CustomInput = (props) => {
         {placeholder}
       </label>
       <input
+        className={`form-control mt-1 ${className}`}
         type={type}
         id={id}
         name={name}
         value={value}
         onChange={onChange}
         onBlur={onBlur}
-        className={`form-control mt-1 ${className}`}
         placeholder={placeholder}
       />
     </div>

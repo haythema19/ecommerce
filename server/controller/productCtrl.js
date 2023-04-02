@@ -66,7 +66,6 @@ const getAllProduct = asyncHandler(async (req, res) => {
     let query = Product.find(JSON.parse(queryStr));
 
     // Sorting
-
     if (req.query.sort) {
       const sortBy = req.query.sort.split(",").join(" ");
       query = query.sort(sortBy);
@@ -75,7 +74,6 @@ const getAllProduct = asyncHandler(async (req, res) => {
     }
 
     // limiting the fields
-
     if (req.query.fields) {
       const fields = req.query.fields.split(",").join(" ");
       query = query.select(fields);
@@ -84,7 +82,6 @@ const getAllProduct = asyncHandler(async (req, res) => {
     }
 
     // pagination
-
     const page = req.query.page;
     const limit = req.query.limit;
     const skip = (page - 1) * limit;

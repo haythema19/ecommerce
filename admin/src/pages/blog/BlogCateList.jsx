@@ -1,35 +1,65 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { Table } from "antd";
+import moment from "moment";
 
-const columns = [
-  {
-    title: "STT",
-    dataIndex: "key",
-  },
-  {
-    title: "Name",
-    dataIndex: "name",
-  },
-  {
-    title: "Product",
-    dataIndex: "product",
-  },
-  {
-    title: "Status",
-    dataIndex: "status",
-  },
-];
-const dataTable = [];
-for (let i = 1; i < 46; i++) {
-  dataTable.push({
-    key: i,
-    name: `Edward King ${i}`,
-    product: 32,
-    status: `London, Park Lane no. ${i}`,
-  });
-}
+import { getCategories } from "../../features/category/bcategorySlice";
 
 const BlogCateList = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCategories());
+  }, []);
+
+  const columns = [
+    {
+      title: "STT",
+      dataIndex: "key",
+      defaultSortOrder: null,
+      sorter: (a, b) => a.key - b.key,
+    },
+    {
+      title: "Title",
+      dataIndex: "title",
+      sorter: (a, b) => a.title.length - b.title.length,
+    },
+    {
+      title: "Status",
+      dataIndex: "status",
+      // sorter: (a, b) => a.status.length - b.status.length,
+    },
+    {
+      title: "Created",
+      dataIndex: "createdAt",
+      sorter: (a, b) => a.status.length - b.status.length,
+      render: (text) => moment(text).format("DD-MM-YYYY HH:mm:ss"),
+    },
+    {
+      title: "Action",
+      dataIndex: "action",
+    },
+  ];
+
+  const categoryState = useSelector((state) => state.bCategory.bCategories);
+  console.log(categoryState);
+  const dataTable = [];
+  for (let i = 0; i < categoryState.length; i++) {
+    dataTable.push({
+      key: i + 1,
+      title: categoryState[i].title,
+      status: categoryState[i].status,
+      createdAt: categoryState[i].createdAt,
+      action: (
+        <div className="d-flex gap-2">
+          <Link className="btn-edit">Edit</Link>
+          <Link className="btn-remove">Delete</Link>
+        </div>
+      ),
+    });
+  }
+
   return (
     <div className="card">
       <h3 className="mb-4 title">Blog categories</h3>

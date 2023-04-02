@@ -8,25 +8,22 @@ const columns = [
   {
     title: "STT",
     dataIndex: "key",
-    defaultSortOrder: "ascend",
+    defaultSortOrder: null,
     sorter: (a, b) => a.key - b.key,
   },
   {
     title: "Tên",
     dataIndex: "name",
-    defaultSortOrder: "ascend",
     sorter: (a, b) => a.name.length - b.name.length,
   },
   {
     title: "Email",
     dataIndex: "email",
-    defaultSortOrder: "ascend",
     sorter: (a, b) => a.email.length - b.email.length,
   },
   {
     title: "Số điện thoại",
     dataIndex: "mobile",
-    defaultSortOrder: "ascend",
     sorter: (a, b) => a.mobile - b.mobile,
   },
 ];
